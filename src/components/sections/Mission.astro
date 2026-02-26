@@ -1,10 +1,12 @@
 ---
 import Button from "../ui/Button.astro";
 import SectionLabel from "../ui/SectionLabel.astro";
+import DecorShapes from "../ui/DecorShapes.astro";
 ---
 
-<section class="rounded-2xl bg-charcoal px-8 py-20 md:px-32 md:py-20">
-  <div class="flex flex-col items-center gap-8 text-center">
+<section class="relative overflow-hidden rounded-2xl bg-charcoal px-8 py-20 md:px-32 md:py-20">
+  <DecorShapes section="mission" />
+  <div class="relative flex flex-col items-center gap-8 text-center">
     <SectionLabel class="!text-taupe">Our Mission</SectionLabel>
 
     <blockquote class="max-w-[900px] font-heading text-2xl leading-snug text-cream md:text-4xl md:leading-[1.2]">

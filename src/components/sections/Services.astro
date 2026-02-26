@@ -2,6 +2,7 @@
 import SectionLabel from "../ui/SectionLabel.astro";
 import SectionHeading from "../ui/SectionHeading.astro";
 import ServiceCard from "../ui/ServiceCard.astro";
+import DecorShapes from "../ui/DecorShapes.astro";
 
 /* Grid flows left→right, so order cards to match the design's column pairs:
    Col 1: sage / blue   |   Col 2: olive / cream   |   Col 3: cream / sage */
@@ -15,8 +16,9 @@ const services = [
 ];
 ---
 
-<section id="services" class="rounded-2xl bg-cream px-8 py-16 md:px-16">
-  <div class="flex flex-col items-center gap-12">
+<section id="services" class="relative overflow-hidden rounded-2xl bg-cream px-8 py-16 md:px-16">
+  <DecorShapes section="services" />
+  <div class="relative flex flex-col items-center gap-12">
     <!-- Header -->
     <div class="flex flex-col items-center gap-4 text-center">
       <SectionLabel>Our Services</SectionLabel>

@@ -28,3 +28,6 @@ images/
 
 # claude
 .claude/
+
+# Local Netlify folder
+.netlify

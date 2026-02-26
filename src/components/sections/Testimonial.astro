@@ -21,10 +21,12 @@ const testimonials = [
     author: "Tracey B",
   },
 ];
+import DecorShapes from "../ui/DecorShapes.astro";
 ---
 
-<section class="overflow-hidden rounded-2xl">
-  <div class="flex flex-col md:flex-row md:h-140">
+<section class="relative overflow-hidden rounded-2xl">
+  <DecorShapes section="testimonial" />
+  <div class="relative flex flex-col md:flex-row md:h-100">
     <!-- Photo side -->
     <div class="relative min-h-[300px] w-full shrink-0 md:w-120 md:min-h-0">
       <img

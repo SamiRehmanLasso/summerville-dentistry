@@ -1,0 +1,85 @@
+---
+/**
+ * Decorative background shapes from V4 design.
+ * Each shape set is scoped to its section via the `section` prop.
+ * Shapes are absolutely positioned, clipped by the section's overflow-hidden.
+ */
+type Shape = {
+  type: "circle" | "rect";
+  size: number;
+  x: string; // CSS left/right
+  y: string; // CSS top/bottom
+  color: string;
+  opacity: number;
+  rotation?: number;
+  radius?: number;
+};
+
+type Section =
+  | "hero"
+  | "testimonial"
+  | "services"
+  | "mission"
+  | "doctors"
+  | "faq"
+  | "cta";
+
+interface Props {
+  section: Section;
+}
+
+const { section } = Astro.props;
+
+const shapes: Record<Section, Shape[]> = {
+  hero: [
+    { type: "circle", size: 180, x: "left: 80px", y: "top: 60px", color: "#7C9082", opacity: 0.08 },
+    { type: "circle", size: 140, x: "right: 100px", y: "top: 120px", color: "#E8E4DF", opacity: 1 },
+    { type: "rect", size: 60, x: "right: 240px", y: "top: 40px", color: "#7C9082", opacity: 0.12, rotation: 25, radius: 12 },
+    { type: "circle", size: 80, x: "left: 200px", y: "bottom: 60px", color: "#7C9082", opacity: 0.06 },
+    { type: "rect", size: 45, x: "right: 60px", y: "bottom: 60px", color: "#E8E4DF", opacity: 1, rotation: -15, radius: 8 },
+  ],
+  testimonial: [
+    { type: "circle", size: 200, x: "left: -40px", y: "top: -40px", color: "#8FA898", opacity: 0.3 },
+    { type: "circle", size: 160, x: "right: -40px", y: "bottom: -20px", color: "#6B8573", opacity: 0.25 },
+    { type: "rect", size: 60, x: "right: 100px", y: "top: 30px", color: "#8FA898", opacity: 0.2, rotation: 30, radius: 8 },
+    { type: "circle", size: 40, x: "left: 100px", y: "bottom: 40px", color: "#FFFFFF", opacity: 0.1 },
+    { type: "circle", size: 24, x: "left: 160px", y: "bottom: 20px", color: "#FFFFFF", opacity: 0.08 },
+  ],
+  services: [
+    { type: "circle", size: 120, x: "right: -20px", y: "top: 60px", color: "#7C9082", opacity: 0.07 },
+    { type: "rect", size: 80, x: "left: -20px", y: "bottom: 40px", color: "#7C9082", opacity: 0.06, rotation: 45, radius: 12 },
+    { type: "circle", size: 60, x: "left: 50%", y: "bottom: 30px", color: "#E8E4DF", opacity: 0.5 },
+  ],
+  mission: [
+    { type: "circle", size: 100, x: "left: 45%", y: "top: -30px", color: "#7C9082", opacity: 0.06 },
+    { type: "rect", size: 50, x: "right: 20px", y: "bottom: 40px", color: "#E8E4DF", opacity: 0.4, rotation: 20, radius: 6 },
+  ],
+  doctors: [
+    { type: "circle", size: 80, x: "left: 50px", y: "top: 50px", color: "#7C9082", opacity: 0.06 },
+    { type: "circle", size: 60, x: "right: 30px", y: "bottom: 40px", color: "#E8E4DF", opacity: 0.4 },
+    { type: "rect", size: 40, x: "left: 50%", y: "top: 20px", color: "#7C9082", opacity: 0.05, rotation: -15, radius: 8 },
+  ],
+  faq: [
+    { type: "circle", size: 100, x: "left: -30px", y: "top: 40%", color: "#7C9082", opacity: 0.05 },
+    { type: "rect", size: 45, x: "right: 20px", y: "top: 80px", color: "#E8E4DF", opacity: 0.3, rotation: 35, radius: 6 },
+  ],
+  cta: [
+    { type: "circle", size: 120, x: "left: 80px", y: "top: 50px", color: "#FFFFFF", opacity: 0.05 },
+    { type: "circle", size: 90, x: "right: 60px", y: "bottom: 40px", color: "#FFFFFF", opacity: 0.04 },
+    { type: "rect", size: 50, x: "right: 240px", y: "top: 40px", color: "#FFFFFF", opacity: 0.06, rotation: 25, radius: 8 },
+    { type: "circle", size: 20, x: "left: 300px", y: "bottom: 60px", color: "#FFFFFF", opacity: 0.08 },
+    { type: "circle", size: 12, x: "left: 340px", y: "bottom: 30px", color: "#FFFFFF", opacity: 0.05 },
+  ],
+};
+
+const sectionShapes = shapes[section];
+---
+
+<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+  {sectionShapes.map((s) => (
+    <div
+      class:list={[s.type === "circle" ? "rounded-full" : ""]}
+      style={`position:absolute;${s.x};${s.y};width:${s.size}px;height:${s.size}px;background:${s.color};opacity:${s.opacity};${s.rotation ? `transform:rotate(${s.rotation}deg);` : ""}${s.radius ? `border-radius:${s.radius}px;` : ""}`}
+    />
+  ))}
+</div>
