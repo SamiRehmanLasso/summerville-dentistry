@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ============================================
    SUMMERVILLE DENTISTRY — STYLE GUIDE
    ============================================
