@@ -134,6 +134,13 @@ html.lenis, html.lenis body {
 .stagger-5 { transition-delay: 0.5s; }
 .stagger-6 { transition-delay: 0.6s; }
 
+/* --- Disable floating animations on mobile (GPU savings) --- */
+@media (max-width: 767px) {
+  [aria-hidden="true"] > div {
+    animation: none !important;
+  }
+}
+
 /* --- Respect reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

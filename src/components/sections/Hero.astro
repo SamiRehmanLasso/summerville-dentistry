@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import heroImage from "../../assets/hero.png";
 import Button from "../ui/Button.astro";
 import SectionLabel from "../ui/SectionLabel.astro";
 import DecorShapes from "../ui/DecorShapes.astro";
@@ -28,11 +30,14 @@ import DecorShapes from "../ui/DecorShapes.astro";
 
     <!-- Right image -->
     <div class="relative flex-1 min-h-[300px] md:min-h-0">
-      <img
-        src="/images/generated-1772106800656.png"
+      <Image
+        src={heroImage}
         alt="Modern dental office interior"
+        widths={[480, 768, 1024]}
+        sizes="(max-width: 768px) 100vw, 50vw"
         class="absolute inset-0 h-full w-full rounded-2xl object-cover"
         loading="eager"
+        fetchpriority="high"
       />
     </div>
   </div>
