@@ -20,8 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# source/reference files
-images/
+# source/reference files (root only)
+/images/
 *.pen
 *.html
 *_files/
