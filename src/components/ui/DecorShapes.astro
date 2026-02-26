@@ -73,13 +73,38 @@ const shapes: Record<Section, Shape[]> = {
 };
 
 const sectionShapes = shapes[section];
+
+// Animation presets — circles (translate + scale only)
+const circleAnims = [
+  "float-drift 12s ease-in-out infinite",
+  "float-drift-alt 15s ease-in-out infinite",
+  "float-drift-slow 18s ease-in-out infinite",
+  "float-drift 14s ease-in-out infinite",
+  "float-drift-alt 16s ease-in-out infinite",
+];
+
+// Animation presets — rectangles (translate + rotate + scale)
+const rectAnims = [
+  "float-drift-rotate 14s ease-in-out infinite",
+  "float-drift-rotate-alt 16s ease-in-out infinite",
+  "float-drift-rotate 18s ease-in-out infinite",
+  "float-drift-rotate-alt 13s ease-in-out infinite",
+];
 ---
 
 <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-  {sectionShapes.map((s) => (
-    <div
-      class:list={[s.type === "circle" ? "rounded-full" : ""]}
-      style={`position:absolute;${s.x};${s.y};width:${s.size}px;height:${s.size}px;background:${s.color};opacity:${s.opacity};${s.rotation ? `transform:rotate(${s.rotation}deg);` : ""}${s.radius ? `border-radius:${s.radius}px;` : ""}`}
-    />
-  ))}
+  {sectionShapes.map((s, i) => {
+    const isRect = s.type === "rect";
+    const anims = isRect ? rectAnims : circleAnims;
+    const anim = anims[i % anims.length];
+    const delay = (i * 2.5).toFixed(1);
+    return (
+      <div style={`position:absolute;${s.x};${s.y};animation:${anim};animation-delay:${delay}s;`}>
+        <div
+          class:list={[s.type === "circle" ? "rounded-full" : ""]}
+          style={`width:${s.size}px;height:${s.size}px;background:${s.color};opacity:${s.opacity};${s.rotation ? `transform:rotate(${s.rotation}deg);` : ""}${s.radius ? `border-radius:${s.radius}px;` : ""}`}
+        />
+      </div>
+    );
+  })}
 </div>

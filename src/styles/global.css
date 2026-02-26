@@ -65,6 +65,44 @@
   to { opacity: 1; transform: scale(1); }
 }
 
+/* --- Decorative shape floating animations --- */
+@keyframes float-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(28px, -20px) scale(1.04); }
+  50% { transform: translate(-14px, -32px) scale(0.96); }
+  75% { transform: translate(20px, 14px) scale(1.03); }
+}
+
+@keyframes float-drift-alt {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-22px, 16px) scale(0.97); }
+  50% { transform: translate(18px, 28px) scale(1.05); }
+  75% { transform: translate(-28px, -10px) scale(1.02); }
+}
+
+@keyframes float-drift-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(20px, -24px) scale(1.03); }
+  40% { transform: translate(-16px, -12px) scale(0.96); }
+  60% { transform: translate(-24px, 20px) scale(1.04); }
+  80% { transform: translate(14px, 22px) scale(0.97); }
+}
+
+/* Slow rotation for rectangular shapes */
+@keyframes float-drift-rotate {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25% { transform: translate(24px, -18px) rotate(8deg) scale(1.03); }
+  50% { transform: translate(-12px, -28px) rotate(-5deg) scale(0.97); }
+  75% { transform: translate(18px, 12px) rotate(10deg) scale(1.02); }
+}
+
+@keyframes float-drift-rotate-alt {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25% { transform: translate(-20px, 14px) rotate(-8deg) scale(0.98); }
+  50% { transform: translate(14px, 24px) rotate(6deg) scale(1.04); }
+  75% { transform: translate(-24px, -8px) rotate(-10deg) scale(1.01); }
+}
+
 /* --- Scroll-triggered animation base --- */
 .animate-on-scroll {
   opacity: 0;
