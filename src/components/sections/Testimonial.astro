@@ -1,0 +1,169 @@
+---
+const testimonials = [
+  {
+    quote: "Summerville Dentistry is awesome! The doctors have exceptional standards and have surrounded their practice with only the most professional and dedicated staff that are personable, respectful and engaging. You will not find a better group of doctors, hygienists and staff.",
+    author: "James",
+  },
+  {
+    quote: "Staff is very friendly and attentive. Everything was explained thoroughly from appointment to next steps. This has been the best experience with a dentist since my childhood. I would definitely recommend!!",
+    author: "Bernisha S",
+  },
+  {
+    quote: "Absolutely love this dentistry office! Great conversations every time I come through. Never once had a problem here! Great company, clean business, and if you ever have questions about your oral hygiene they are always willing to help!",
+    author: "Jazz B",
+  },
+  {
+    quote: "Super thorough and detailed. No pain experienced during the cleaning and my teeth had not been touched professionally for several years. Friendly staff, professional and personable, easy checking in and out too. Highly recommend!",
+    author: "Jamie L",
+  },
+  {
+    quote: "Best experience at any dental office I've ever been to! Super friendly staff, considerate of any sensitivities, and overall an enjoyable atmosphere. Highly recommend!",
+    author: "Tracey B",
+  },
+];
+---
+
+<section class="overflow-hidden rounded-2xl">
+  <div class="flex flex-col md:flex-row md:h-140">
+    <!-- Photo side -->
+    <div class="relative min-h-[300px] w-full shrink-0 md:w-120 md:min-h-0">
+      <img
+        src="/images/team.webp"
+        alt="Summerville Dentistry team"
+        class="absolute inset-0 h-full w-full rounded-2xl object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Testimonial carousel -->
+    <div class="flex flex-1 flex-col justify-center gap-8 rounded-2xl bg-cream px-8 py-12 md:px-14 md:py-16">
+      <!-- Quote icon -->
+      <svg class="h-8 w-8 text-copper" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+      </svg>
+
+      <!-- Slides container -->
+      <div id="testimonial-carousel" class="relative min-h-45 md:min-h-50">
+        {testimonials.map((t, i) => (
+          <div
+            class:list={[
+              "testimonial-slide absolute inset-0 transition-all duration-500 ease-out",
+              i === 0 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none",
+            ]}
+            data-slide={i}
+          >
+            <blockquote class="font-heading text-lg leading-snug text-dark md:text-[26px] md:leading-[1.35]">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+          </div>
+        ))}
+      </div>
+
+      <!-- Author + controls -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p id="testimonial-author" class="text-sm font-medium text-muted font-body">
+            {testimonials.at(0)?.author} — Patient
+          </p>
+          <div class="mt-2 flex gap-1">
+            {Array.from({ length: 5 }).map(() => (
+              <svg class="h-4.5 w-4.5 fill-copper" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            ))}
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button
+            id="testimonial-prev"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-taupe text-charcoal transition-colors duration-200 hover:bg-charcoal hover:text-cream"
+            aria-label="Previous testimonial"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            id="testimonial-next"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-taupe text-charcoal transition-colors duration-200 hover:bg-charcoal hover:text-cream"
+            aria-label="Next testimonial"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="flex gap-2">
+        {testimonials.map((_, i) => (
+          <button
+            class:list={[
+              "testimonial-dot h-1.5 rounded-full transition-all duration-300",
+              i === 0 ? "w-6 bg-copper" : "w-1.5 bg-taupe",
+            ]}
+            data-dot={i}
+            aria-label={`Go to testimonial ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const authors = [
+    "James — Patient",
+    "Bernisha S — Patient",
+    "Jazz B — Patient",
+    "Jamie L — Patient",
+    "Tracey B — Patient",
+  ];
+
+  let current = 0;
+  const slides = document.querySelectorAll(".testimonial-slide");
+  const dots = document.querySelectorAll(".testimonial-dot");
+  const authorEl = document.getElementById("testimonial-author");
+  const total = slides.length;
+
+  function goTo(index: number) {
+    const prev = slides[current];
+    const prevDot = dots[current];
+    if (prev) {
+      prev.classList.remove("opacity-100", "translate-y-0");
+      prev.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+    }
+    if (prevDot) {
+      prevDot.classList.remove("w-6", "bg-copper");
+      prevDot.classList.add("w-1.5", "bg-taupe");
+    }
+
+    current = ((index % total) + total) % total;
+
+    const next = slides[current];
+    const nextDot = dots[current];
+    if (next) {
+      next.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+      next.classList.add("opacity-100", "translate-y-0");
+    }
+    if (nextDot) {
+      nextDot.classList.remove("w-1.5", "bg-taupe");
+      nextDot.classList.add("w-6", "bg-copper");
+    }
+    if (authorEl) authorEl.textContent = authors[current] ?? "";
+  }
+
+  document.getElementById("testimonial-prev")?.addEventListener("click", () => goTo(current - 1));
+  document.getElementById("testimonial-next")?.addEventListener("click", () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+
+  // Auto-advance every 7s, pause on hover
+  let interval = setInterval(() => goTo(current + 1), 7000);
+  const section = document.getElementById("testimonial-carousel")?.closest("section");
+  section?.addEventListener("mouseenter", () => clearInterval(interval));
+  section?.addEventListener("mouseleave", () => {
+    interval = setInterval(() => goTo(current + 1), 7000);
+  });
+</script>

@@ -1,0 +1,71 @@
+---
+import Button from "../ui/Button.astro";
+import LogoIcon from "../ui/LogoIcon.astro";
+
+const navLinks = [
+  { label: "Home", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Treatments", href: "#services" },
+  { label: "Cosmetic", href: "#services" },
+  { label: "Patients", href: "#faq" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<nav class="rounded-2xl bg-cream px-6 py-4 md:px-12">
+  <div class="flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 text-xl font-medium text-dark font-body">
+      <LogoIcon class="h-8 w-auto" />
+      Summerville Dentistry
+    </a>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="flex h-10 w-10 items-center justify-center rounded-lg md:hidden"
+      aria-label="Toggle menu"
+    >
+      <svg class="h-5 w-5 text-charcoal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Desktop nav -->
+    <div class="hidden items-center gap-8 md:flex">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-sm text-charcoal transition-colors duration-200 hover:text-dark font-body"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <div class="hidden md:block">
+      <Button variant="primary" size="sm" href="#contact">Schedule Today</Button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="hidden flex-col gap-4 pt-6 md:hidden">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="text-sm text-charcoal font-body"
+      >
+        {link.label}
+      </a>
+    ))}
+    <Button variant="primary" size="sm" href="#contact">Schedule Today</Button>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+    menu?.classList.toggle("flex");
+  });
+</script>

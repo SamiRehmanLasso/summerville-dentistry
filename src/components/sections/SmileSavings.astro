@@ -1,0 +1,30 @@
+---
+import Button from "../ui/Button.astro";
+---
+
+<section class="overflow-hidden rounded-2xl bg-charcoal">
+  <div class="flex flex-col items-center gap-8 px-8 py-16 text-center md:px-24 md:py-20">
+    <!-- Decorative icon -->
+    <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-copper/20">
+      <svg class="h-8 w-8 text-copper" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      <h2 class="font-heading text-3xl text-cream md:text-4xl">No Insurance?</h2>
+      <p class="text-xl font-medium text-copper font-body md:text-2xl">Our Patients Don't Need It!</p>
+    </div>
+
+    <p class="max-w-lg text-base leading-relaxed text-taupe font-body">
+      Our Smile Savings Plan gives you access to preventive care, exams, x-rays,
+      and exclusive discounts on treatments — all for a low monthly fee. No deductibles,
+      no annual maximums, no waiting periods.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <Button variant="light" href="#">Augusta Plan</Button>
+      <Button variant="light" href="#">Evans Plan</Button>
+    </div>
+  </div>
+</section>

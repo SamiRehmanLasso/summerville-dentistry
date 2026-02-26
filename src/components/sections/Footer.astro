@@ -1,0 +1,119 @@
+---
+import LogoIcon from "../ui/LogoIcon.astro";
+
+const treatments = [
+  "Preventive Care",
+  "Cosmetic Dentistry",
+  "Dental Implants",
+  "Same-Day Crowns",
+  "Teeth Whitening",
+  "Clear Aligners",
+];
+
+const connect = [
+  { label: "Schedule Appointment", href: "#contact" },
+  { label: "Patient Forms", href: "#" },
+  { label: "Pay My Bill", href: "#" },
+];
+
+const socials = [
+  { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/SummervilleDentistry/" },
+  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/summervilledentistry/" },
+];
+---
+
+<footer class="rounded-2xl bg-charcoal px-8 py-12 md:px-16">
+  <div class="flex flex-col gap-10">
+    <!-- Top -->
+    <div class="flex flex-col gap-12 md:flex-row md:gap-16">
+      <!-- Brand -->
+      <div class="flex flex-col gap-4 md:w-80 shrink-0">
+        <span class="flex items-center gap-2 text-xl font-medium text-cream font-body">
+          <LogoIcon class="h-8 w-auto" />
+          Summerville Dentistry
+        </span>
+        <p class="max-w-[280px] text-[13px] leading-relaxed text-taupe font-body">
+          Caring for you &amp; your smile. We provide superb dental care with the time,
+          respect, and kindness you deserve.
+        </p>
+      </div>
+
+      <!-- Columns -->
+      <div class="grid flex-1 grid-cols-1 gap-8 sm:grid-cols-3">
+        <!-- Treatments -->
+        <div class="flex flex-col gap-3">
+          <span class="text-[11px] font-medium uppercase tracking-[1.5px] text-taupe font-body">
+            Treatments
+          </span>
+          {treatments.map((item) => (
+            <a href="#services" class="text-[13px] text-cream transition-colors duration-200 hover:text-taupe font-body">
+              {item}
+            </a>
+          ))}
+        </div>
+
+        <!-- Locations -->
+        <div class="flex flex-col gap-3">
+          <span class="text-[11px] font-medium uppercase tracking-[1.5px] text-taupe font-body">
+            Locations
+          </span>
+          <div class="flex flex-col gap-1">
+            <span class="text-[13px] font-medium text-cream font-body">Augusta Office</span>
+            <span class="text-[13px] leading-relaxed text-taupe font-body">
+              3013 Walton Way<br />Augusta, GA 30909<br />(706) 738-4723
+            </span>
+          </div>
+          <div class="flex flex-col gap-1 mt-2">
+            <span class="text-[13px] font-medium text-cream font-body">Evans Office</span>
+            <span class="text-[13px] leading-relaxed text-taupe font-body">
+              3991 Amberley Trail<br />Evans, GA 30809<br />(706) 250-2998
+            </span>
+          </div>
+        </div>
+
+        <!-- Connect -->
+        <div class="flex flex-col gap-3">
+          <span class="text-[11px] font-medium uppercase tracking-[1.5px] text-taupe font-body">
+            Connect
+          </span>
+          {connect.map((item) => (
+            <a href={item.href} class="text-[13px] text-cream transition-colors duration-200 hover:text-taupe font-body">
+              {item.label}
+            </a>
+          ))}
+
+          <span class="mt-2 text-[11px] font-medium uppercase tracking-[1.5px] text-taupe font-body">
+            Follow Us
+          </span>
+          <div class="flex gap-3">
+            {socials.map((s) => (
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Follow us on ${s.label}`}
+                class="flex h-9 w-9 items-center justify-center rounded-full border border-footer-border text-taupe transition-colors duration-200 hover:border-cream hover:text-cream"
+              >
+                {s.icon === "facebook" ? (
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
+                ) : (
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><path d="M17.5 6.5h.01" /></svg>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="flex flex-col items-center justify-between gap-4 border-t border-footer-border pt-5 md:flex-row">
+      <span class="text-xs text-taupe font-body">
+        Summerville Dentistry &copy; 2026. All Rights Reserved.
+      </span>
+      <span class="text-xs text-taupe font-body">
+        Mon&ndash;Fri 7:30am &ndash; 5:00pm
+      </span>
+    </div>
+  </div>
+</footer>

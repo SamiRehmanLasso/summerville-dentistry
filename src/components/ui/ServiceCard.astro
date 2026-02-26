@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  color?: "sage" | "blue" | "olive" | "cream-outline" | "white";
+  class?: string;
+}
+
+const { title, description, icon, color = "sage", class: className = "" } = Astro.props;
+
+const colorClasses = {
+  sage: "bg-sage",
+  blue: "bg-dusty-blue",
+  olive: "bg-olive",
+  "cream-outline": "bg-cream border border-taupe",
+  white: "bg-white",
+};
+
+const icons: Record<string, string> = {
+  sparkles: `<svg class="h-7 w-7 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+  crown: `<svg class="h-7 w-7 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 4l3 12h14l3-12-6 7-4-9-4 9-6-7zm3 16h14" /></svg>`,
+  "circle-dot": `<svg class="h-7 w-7 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="1" fill="currentColor" /></svg>`,
+  "scan-line": `<svg class="h-7 w-7 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M2 8V6a2 2 0 012-2h4m8 0h4a2 2 0 012 2v2m0 8v2a2 2 0 01-2 2h-4m-8 0H4a2 2 0 01-2-2v-2m2-4h16" /></svg>`,
+  sun: `<svg class="h-7 w-7 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>`,
+  "shield-check": `<svg class="h-7 w-7 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" /></svg>`,
+};
+---
+
+<div
+  class:list={[
+    "rounded-2xl p-7 md:p-8 flex flex-col gap-4 transition-transform duration-300 hover:-translate-y-1",
+    colorClasses[color],
+    className,
+  ]}
+>
+  <Fragment set:html={icons[icon] || icons.sparkles} />
+  <h3 class="text-lg font-medium text-dark font-body">{title}</h3>
+  <p class="text-sm leading-relaxed text-charcoal font-body">{description}</p>
+</div>

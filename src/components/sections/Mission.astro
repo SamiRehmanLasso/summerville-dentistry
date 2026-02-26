@@ -1,0 +1,21 @@
+---
+import Button from "../ui/Button.astro";
+import SectionLabel from "../ui/SectionLabel.astro";
+---
+
+<section class="rounded-2xl bg-charcoal px-8 py-20 md:px-32 md:py-20">
+  <div class="flex flex-col items-center gap-8 text-center">
+    <SectionLabel class="!text-taupe">Our Mission</SectionLabel>
+
+    <blockquote class="max-w-[900px] font-heading text-2xl leading-snug text-cream md:text-4xl md:leading-[1.2]">
+      To provide superb dental care to every patient, and treat them with the time, respect,
+      kindness, and care that we would expect for ourselves.
+    </blockquote>
+
+    <p class="text-[15px] text-taupe font-body">
+      Open Fridays for your convenience &bull; Serving Evans &amp; Augusta, GA
+    </p>
+
+    <Button variant="light" href="#contact">Schedule a Visit</Button>
+  </div>
+</section>

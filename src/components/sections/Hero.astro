@@ -1,0 +1,37 @@
+---
+import Button from "../ui/Button.astro";
+import SectionLabel from "../ui/SectionLabel.astro";
+---
+
+<section class="overflow-hidden rounded-2xl bg-cream">
+  <div class="flex flex-col md:flex-row md:h-[600px]">
+    <!-- Left content -->
+    <div class="flex flex-1 flex-col justify-center gap-8 px-8 py-16 md:px-16 md:py-20">
+      <SectionLabel>Caring for You &amp; Your Smile</SectionLabel>
+
+      <h1 class="font-heading text-4xl leading-[1.05] tracking-tight text-dark md:text-[64px]">
+        Your Smile Deserves Exceptional Care
+      </h1>
+
+      <p class="max-w-lg text-base leading-relaxed text-charcoal font-body">
+        At Summerville Dentistry, we prioritize patient relationships through gentle,
+        compassionate care from our convenient Evans and Augusta, GA locations.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <Button variant="primary" href="#contact">Schedule Today</Button>
+        <Button variant="secondary" href="#doctors">Meet Our Doctors</Button>
+      </div>
+    </div>
+
+    <!-- Right image -->
+    <div class="relative flex-1 min-h-[300px] md:min-h-0">
+      <img
+        src="/images/generated-1772106800656.png"
+        alt="Modern dental office interior"
+        class="absolute inset-0 h-full w-full rounded-2xl object-cover"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>

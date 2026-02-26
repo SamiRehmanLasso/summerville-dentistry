@@ -1,0 +1,92 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+
+const faqs = [
+  {
+    question: "Do you accept dental insurance?",
+    answer: "Yes, we accept most major dental insurance plans. Our team will help verify your coverage and maximize your benefits. We also offer flexible payment options for uninsured patients.",
+  },
+  {
+    question: "What is the Smile Savings Plan?",
+    answer: "Our Smile Savings Plan is an in-house membership program for patients without insurance. It includes preventive care visits, exams, x-rays, and discounts on additional treatments at an affordable annual fee.",
+  },
+  {
+    question: "Are you accepting new patients?",
+    answer: "Absolutely! We are currently welcoming new patients at both our Augusta and Evans locations. Call us or schedule online to book your first appointment.",
+  },
+  {
+    question: "What are your office hours?",
+    answer: "We are open Monday through Friday, 7:30am to 5:00pm. We are proud to offer Friday hours for your convenience.",
+  },
+  {
+    question: "What services do you offer?",
+    answer: "We offer comprehensive dental care including preventive care, cosmetic dentistry, same-day crowns, dental implants, clear aligners, teeth whitening, periodontal treatments, full-mouth reconstruction, and much more. Visit our Treatments page for a complete list.",
+  },
+];
+---
+
+<section id="faq" class="rounded-2xl bg-cream px-8 py-16 md:px-32">
+  <div class="flex flex-col items-center gap-10">
+    <SectionHeading>Frequently Asked Questions</SectionHeading>
+
+    <div class="w-full">
+      {faqs.map((faq, i) => (
+        <div
+          class="faq-item border-t border-taupe"
+          data-faq-index={i}
+        >
+          <button
+            class="flex w-full items-center justify-between py-5 text-left transition-colors duration-200"
+            aria-expanded="false"
+          >
+            <span class="text-base text-dark font-body pr-4">{faq.question}</span>
+            <svg
+              class="faq-icon h-[18px] w-[18px] shrink-0 text-muted transition-transform duration-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <div class="faq-answer grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out">
+            <div class="overflow-hidden">
+              <p class="pb-5 text-sm leading-relaxed text-charcoal font-body">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    const btn = item.querySelector("button");
+    const answer = item.querySelector(".faq-answer");
+    const icon = item.querySelector(".faq-icon");
+
+    btn?.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+      // Close all others
+      document.querySelectorAll(".faq-item").forEach((other) => {
+        other.querySelector("button")?.setAttribute("aria-expanded", "false");
+        other.querySelector(".faq-answer")?.classList.remove("grid-rows-[1fr]");
+        other.querySelector(".faq-answer")?.classList.add("grid-rows-[0fr]");
+        other.querySelector(".faq-icon")?.classList.remove("rotate-45");
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        btn.setAttribute("aria-expanded", "true");
+        answer?.classList.remove("grid-rows-[0fr]");
+        answer?.classList.add("grid-rows-[1fr]");
+        icon?.classList.add("rotate-45");
+      }
+    });
+  });
+</script>
