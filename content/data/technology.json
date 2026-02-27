@@ -1,0 +1,32 @@
+{
+  "type": "TechnologySection",
+  "label": "Our Technology",
+  "heading": "Advanced Care, Modern Comfort",
+  "description": "We invest in the latest dental technology so you can enjoy faster, more comfortable, and more precise treatments every visit.",
+  "technologies": [
+    {
+      "title": "CEREC Same-Day Crowns",
+      "description": "Using Sirona CEREC technology, we design and mill custom ceramic crowns right in our office \u2014 no temporary crowns or second visits needed."
+    },
+    {
+      "title": "Digital X-Rays & Imaging",
+      "description": "Our digital radiography system delivers instant, high-resolution images with up to 80% less radiation than traditional film x-rays."
+    },
+    {
+      "title": "Intraoral Cameras",
+      "description": "See what we see. Our high-definition intraoral cameras let you view real-time images of your teeth to better understand your treatment."
+    },
+    {
+      "title": "SureSmile Clear Aligners",
+      "description": "Computer-designed clear aligners for precise, comfortable teeth straightening \u2014 custom-fabricated for your unique smile."
+    },
+    {
+      "title": "Laser Dentistry",
+      "description": "Minimally invasive laser treatments for gum therapy, cavity detection, and soft tissue procedures \u2014 often with no anesthetic needed."
+    },
+    {
+      "title": "Nitrous Oxide Sedation",
+      "description": "Comfortable, anxiety-free visits with safe nitrous oxide sedation \u2014 perfect for patients who feel nervous about dental procedures."
+    }
+  ]
+}

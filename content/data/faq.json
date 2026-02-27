@@ -1,0 +1,26 @@
+{
+  "type": "FaqSection",
+  "heading": "Frequently Asked Questions",
+  "faqs": [
+    {
+      "question": "Do you accept dental insurance?",
+      "answer": "Yes, we accept most major dental insurance plans. Our team will help verify your coverage and maximize your benefits. We also offer flexible payment options for uninsured patients."
+    },
+    {
+      "question": "What is the Smile Savings Plan?",
+      "answer": "Our Smile Savings Plan is an in-house membership program for patients without insurance. It includes preventive care visits, exams, x-rays, and discounts on additional treatments at an affordable annual fee."
+    },
+    {
+      "question": "Are you accepting new patients?",
+      "answer": "Absolutely! We are currently welcoming new patients at both our Augusta and Evans locations. Call us or schedule online to book your first appointment."
+    },
+    {
+      "question": "What are your office hours?",
+      "answer": "We are open Monday through Friday, 7:30am to 5:00pm. We are proud to offer Friday hours for your convenience."
+    },
+    {
+      "question": "What services do you offer?",
+      "answer": "We offer comprehensive dental care including preventive care, cosmetic dentistry, same-day crowns, dental implants, clear aligners, teeth whitening, periodontal treatments, full-mouth reconstruction, and much more. Visit our Treatments page for a complete list."
+    }
+  ]
+}

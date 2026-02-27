@@ -1,22 +1,14 @@
 ---
 import Button from "../ui/Button.astro";
 import LogoIcon from "../ui/LogoIcon.astro";
-
-const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#about" },
-  { label: "Treatments", href: "#services" },
-  { label: "Cosmetic", href: "#services" },
-  { label: "Patients", href: "#faq" },
-  { label: "Contact", href: "#contact" },
-];
+import navbarData from "../../../content/data/navbar.json";
 ---
 
-<nav class="rounded-2xl bg-cream px-6 py-4 md:px-12">
+<nav class="rounded-2xl bg-cream px-6 py-4 md:px-12" data-sb-object-id="content/data/navbar.json">
   <div class="flex items-center justify-between">
     <a href="/" class="flex items-center gap-2 text-xl font-medium text-dark font-body">
       <LogoIcon class="h-8 w-auto" />
-      Summerville Dentistry
+      <span data-sb-field-path="siteName">{navbarData.siteName}</span>
     </a>
 
     <!-- Mobile menu button -->
@@ -32,10 +24,11 @@ const navLinks = [
 
     <!-- Desktop nav -->
     <div class="hidden items-center gap-8 md:flex">
-      {navLinks.map((link) => (
+      {navbarData.links.map((link: { label: string; href: string }, i: number) => (
         <a
           href={link.href}
           class="text-sm text-charcoal transition-colors duration-200 hover:text-dark font-body"
+          data-sb-field-path={`links.${i}.label`}
         >
           {link.label}
         </a>
@@ -43,13 +36,13 @@ const navLinks = [
     </div>
 
     <div class="hidden md:block">
-      <Button variant="primary" size="sm" href="#contact">Schedule Today</Button>
+      <Button variant="primary" size="sm" href={navbarData.ctaHref}>{navbarData.ctaText}</Button>
     </div>
   </div>
 
   <!-- Mobile nav -->
   <div id="mobile-menu" class="hidden flex-col gap-4 pt-6 md:hidden">
-    {navLinks.map((link) => (
+    {navbarData.links.map((link: { label: string; href: string }) => (
       <a
         href={link.href}
         class="text-sm text-charcoal font-body"
@@ -57,7 +50,7 @@ const navLinks = [
         {link.label}
       </a>
     ))}
-    <Button variant="primary" size="sm" href="#contact">Schedule Today</Button>
+    <Button variant="primary" size="sm" href={navbarData.ctaHref}>{navbarData.ctaText}</Button>
   </div>
 </nav>
 

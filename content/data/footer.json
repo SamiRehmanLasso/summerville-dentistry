@@ -1,0 +1,38 @@
+{
+  "type": "FooterSection",
+  "siteName": "Summerville Dentistry",
+  "tagline": "Caring for you & your smile. We provide superb dental care with the time, respect, and kindness you deserve.",
+  "copyright": "Summerville Dentistry \u00a9 2026. All Rights Reserved.",
+  "hours": "Mon\u2013Fri 7:30am \u2013 5:00pm",
+  "treatments": [
+    "Preventive Care",
+    "Cosmetic Dentistry",
+    "Dental Implants",
+    "Same-Day Crowns",
+    "Teeth Whitening",
+    "Clear Aligners"
+  ],
+  "locations": [
+    {
+      "name": "Augusta Office",
+      "address": "3013 Walton Way",
+      "city": "Augusta, GA 30909",
+      "phone": "(706) 738-4723"
+    },
+    {
+      "name": "Evans Office",
+      "address": "3991 Amberley Trail",
+      "city": "Evans, GA 30809",
+      "phone": "(706) 250-2998"
+    }
+  ],
+  "connectLinks": [
+    { "label": "Schedule Appointment", "href": "#contact" },
+    { "label": "Patient Forms", "href": "#" },
+    { "label": "Pay My Bill", "href": "#" }
+  ],
+  "socials": [
+    { "label": "Facebook", "icon": "facebook", "href": "https://www.facebook.com/SummervilleDentistry/" },
+    { "label": "Instagram", "icon": "instagram", "href": "https://www.instagram.com/summervilledentistry/" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "PatientJourneySection",
+  "label": "New Patients",
+  "heading": "Your Journey to a Healthier Smile",
+  "description": "We make getting started simple. Here's what to expect when you visit Summerville Dentistry.",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Schedule Your Visit",
+      "description": "Book online or give us a call. Our friendly team will find a time that works for your schedule at either our Augusta or Evans office."
+    },
+    {
+      "number": "02",
+      "title": "Comprehensive Exam",
+      "description": "We'll take digital x-rays, perform a thorough exam, and sit down with you to discuss your oral health goals and any concerns."
+    },
+    {
+      "number": "03",
+      "title": "Personalized Plan",
+      "description": "Your doctor creates a custom treatment plan tailored to your needs, budget, and timeline \u2014 with clear explanations every step of the way."
+    },
+    {
+      "number": "04",
+      "title": "Smile with Confidence",
+      "description": "From routine cleanings to advanced restorations, we deliver results that help you smile bigger and live healthier."
+    }
+  ]
+}

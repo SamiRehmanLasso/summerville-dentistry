@@ -1,0 +1,27 @@
+{
+  "type": "TestimonialsSection",
+  "teamImage": "/images/team.webp",
+  "teamImageAlt": "Summerville Dentistry team",
+  "testimonials": [
+    {
+      "quote": "Summerville Dentistry is awesome! The doctors have exceptional standards and have surrounded their practice with only the most professional and dedicated staff that are personable, respectful and engaging. You will not find a better group of doctors, hygienists and staff.",
+      "author": "James"
+    },
+    {
+      "quote": "Staff is very friendly and attentive. Everything was explained thoroughly from appointment to next steps. This has been the best experience with a dentist since my childhood. I would definitely recommend!!",
+      "author": "Bernisha S"
+    },
+    {
+      "quote": "Absolutely love this dentistry office! Great conversations every time I come through. Never once had a problem here! Great company, clean business, and if you ever have questions about your oral hygiene they are always willing to help!",
+      "author": "Jazz B"
+    },
+    {
+      "quote": "Super thorough and detailed. No pain experienced during the cleaning and my teeth had not been touched professionally for several years. Friendly staff, professional and personable, easy checking in and out too. Highly recommend!",
+      "author": "Jamie L"
+    },
+    {
+      "quote": "Best experience at any dental office I've ever been to! Super friendly staff, considerate of any sensitivities, and overall an enjoyable atmosphere. Highly recommend!",
+      "author": "Tracey B"
+    }
+  ]
+}

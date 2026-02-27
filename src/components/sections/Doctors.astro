@@ -2,45 +2,22 @@
 import SectionHeading from "../ui/SectionHeading.astro";
 import DoctorCard from "../ui/DoctorCard.astro";
 import DecorShapes from "../ui/DecorShapes.astro";
-
-const doctors = [
-  {
-    name: "Scott Wingard, DMD",
-    description: "Enjoys improving his patients' quality of life and building trusting relationships, always keeping their best interest in mind.",
-    image: "/images/Scott.webp",
-  },
-  {
-    name: "Sherilyn Harper, DMD",
-    description: "Creates patient-centered relationships built on a foundation of respect, the power of good communication, and high-quality dentistry.",
-    image: "/images/Sherilyn.webp",
-  },
-  {
-    name: "Ariel K. Bish, DMD",
-    description: "Understands the importance of involving patients in the decision-making process to achieve their best smile and oral health goals.",
-    image: "/images/Ariel.webp",
-  },
-  {
-    name: "Lori Harrell, DDS",
-    description: "Educates early and involves patients in decisions regarding their smile and oral health, ensuring they feel well cared for.",
-    image: "/images/Lori.webp",
-  },
-];
+import doctorsData from "../../../content/data/doctors.json";
 ---
 
-<section id="doctors" class="relative overflow-hidden rounded-2xl bg-cream px-8 py-16 md:px-16">
+<section id="doctors" class="relative overflow-hidden rounded-2xl bg-cream px-8 py-16 md:px-16" data-sb-object-id="content/data/doctors.json">
   <DecorShapes section="doctors" />
   <div class="relative flex flex-col items-center gap-12">
     <div class="flex flex-col items-center gap-4 text-center">
-      <SectionHeading>Meet Our Doctors</SectionHeading>
-      <p class="max-w-xl text-base leading-relaxed text-charcoal font-body">
-        Our doctors' personalized, patient-first approach makes patients feel confident
-        and valued, knowing they are receiving the highest level of dental care possible.
+      <SectionHeading>{doctorsData.heading}</SectionHeading>
+      <p class="max-w-xl text-base leading-relaxed text-charcoal font-body" data-sb-field-path="description">
+        {doctorsData.description}
       </p>
     </div>
 
     <div class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
-      {doctors.map((doc, i) => (
-        <div class="animate-on-scroll" style={`transition-delay: ${i * 0.1}s`}>
+      {doctorsData.doctors.map((doc: { name: string; description: string; image: string }, i: number) => (
+        <div class="animate-on-scroll" style={`transition-delay: ${i * 0.1}s`} data-sb-field-path={`doctors.${i}`}>
           <DoctorCard
             name={doc.name}
             description={doc.description}

@@ -1,41 +1,21 @@
 ---
-const testimonials = [
-  {
-    quote: "Summerville Dentistry is awesome! The doctors have exceptional standards and have surrounded their practice with only the most professional and dedicated staff that are personable, respectful and engaging. You will not find a better group of doctors, hygienists and staff.",
-    author: "James",
-  },
-  {
-    quote: "Staff is very friendly and attentive. Everything was explained thoroughly from appointment to next steps. This has been the best experience with a dentist since my childhood. I would definitely recommend!!",
-    author: "Bernisha S",
-  },
-  {
-    quote: "Absolutely love this dentistry office! Great conversations every time I come through. Never once had a problem here! Great company, clean business, and if you ever have questions about your oral hygiene they are always willing to help!",
-    author: "Jazz B",
-  },
-  {
-    quote: "Super thorough and detailed. No pain experienced during the cleaning and my teeth had not been touched professionally for several years. Friendly staff, professional and personable, easy checking in and out too. Highly recommend!",
-    author: "Jamie L",
-  },
-  {
-    quote: "Best experience at any dental office I've ever been to! Super friendly staff, considerate of any sensitivities, and overall an enjoyable atmosphere. Highly recommend!",
-    author: "Tracey B",
-  },
-];
 import DecorShapes from "../ui/DecorShapes.astro";
+import testimonialsData from "../../../content/data/testimonials.json";
 ---
 
-<section class="relative overflow-hidden rounded-2xl">
+<section class="relative overflow-hidden rounded-2xl" data-sb-object-id="content/data/testimonials.json">
   <DecorShapes section="testimonial" />
   <div class="relative flex flex-col md:flex-row md:h-100">
     <!-- Photo side -->
     <div class="relative min-h-[300px] w-full shrink-0 md:w-120 md:min-h-0">
       <img
-        src="/images/team.webp"
-        alt="Summerville Dentistry team"
+        src={testimonialsData.teamImage}
+        alt={testimonialsData.teamImageAlt}
         width="762"
         height="731"
         class="absolute inset-0 h-full w-full rounded-2xl object-cover"
         loading="lazy"
+        data-sb-field-path="teamImage"
       />
     </div>
 
@@ -48,15 +28,16 @@ import DecorShapes from "../ui/DecorShapes.astro";
 
       <!-- Slides container -->
       <div id="testimonial-carousel" class="relative min-h-45 md:min-h-50">
-        {testimonials.map((t, i) => (
+        {testimonialsData.testimonials.map((t: { quote: string; author: string }, i: number) => (
           <div
             class:list={[
               "testimonial-slide absolute inset-0 transition-all duration-500 ease-out",
               i === 0 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none",
             ]}
             data-slide={i}
+            data-sb-field-path={`testimonials.${i}`}
           >
-            <blockquote class="font-heading text-lg leading-snug text-dark md:text-[26px] md:leading-[1.35]">
+            <blockquote class="font-heading text-lg leading-snug text-dark md:text-[26px] md:leading-[1.35]" data-sb-field-path=".quote">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
           </div>
@@ -67,7 +48,7 @@ import DecorShapes from "../ui/DecorShapes.astro";
       <div class="flex items-center justify-between">
         <div>
           <p id="testimonial-author" class="text-sm font-medium text-muted font-body">
-            {testimonials.at(0)?.author} — Patient
+            {testimonialsData.testimonials[0]?.author} — Patient
           </p>
           <div class="mt-2 flex gap-1">
             {Array.from({ length: 5 }).map(() => (
@@ -102,7 +83,7 @@ import DecorShapes from "../ui/DecorShapes.astro";
 
       <!-- Dots -->
       <div class="flex gap-2">
-        {testimonials.map((_, i) => (
+        {testimonialsData.testimonials.map((_: { quote: string; author: string }, i: number) => (
           <button
             class:list={[
               "testimonial-dot h-1.5 rounded-full transition-all duration-300",
@@ -118,13 +99,11 @@ import DecorShapes from "../ui/DecorShapes.astro";
 </section>
 
 <script>
-  const authors = [
-    "James — Patient",
-    "Bernisha S — Patient",
-    "Jazz B — Patient",
-    "Jamie L — Patient",
-    "Tracey B — Patient",
-  ];
+  import testimonialsData from "../../../content/data/testimonials.json";
+
+  const authors = testimonialsData.testimonials.map(
+    (t: { author: string }) => `${t.author} — Patient`
+  );
 
   let current = 0;
   const slides = document.querySelectorAll(".testimonial-slide");

@@ -43,6 +43,13 @@ const {
   <body class="bg-taupe font-body text-dark">
     <slot />
 
+    <!-- Netlify Visual Editor: reload on content change -->
+    <script>
+      window.addEventListener("stackbitObjectsChanged", () => {
+        window.location.reload();
+      });
+    </script>
+
     <script>
       import Lenis from "lenis";
 

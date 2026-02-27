@@ -1,0 +1,14 @@
+{
+  "type": "NavbarSection",
+  "siteName": "Summerville Dentistry",
+  "ctaText": "Schedule Today",
+  "ctaHref": "#contact",
+  "links": [
+    { "label": "Home", "href": "#" },
+    { "label": "About", "href": "#about" },
+    { "label": "Treatments", "href": "#services" },
+    { "label": "Cosmetic", "href": "#services" },
+    { "label": "Patients", "href": "#faq" },
+    { "label": "Contact", "href": "#contact" }
+  ]
+}

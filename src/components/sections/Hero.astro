@@ -4,27 +4,27 @@ import heroImage from "../../assets/hero.png";
 import Button from "../ui/Button.astro";
 import SectionLabel from "../ui/SectionLabel.astro";
 import DecorShapes from "../ui/DecorShapes.astro";
+import heroData from "../../../content/data/hero.json";
 ---
 
-<section class="relative overflow-hidden rounded-2xl bg-cream">
+<section class="relative overflow-hidden rounded-2xl bg-cream" data-sb-object-id="content/data/hero.json">
   <DecorShapes section="hero" />
   <div class="relative flex flex-col md:flex-row md:h-[600px]">
     <!-- Left content -->
     <div class="flex flex-1 flex-col justify-center gap-8 px-8 py-16 md:px-16 md:py-20">
-      <SectionLabel>Caring for You &amp; Your Smile</SectionLabel>
+      <SectionLabel>{heroData.label}</SectionLabel>
 
-      <h1 class="font-heading text-4xl leading-[1.05] tracking-tight text-dark md:text-[64px]">
-        Your Smile Deserves Exceptional Care
+      <h1 class="font-heading text-4xl leading-[1.05] tracking-tight text-dark md:text-[64px]" data-sb-field-path="heading">
+        {heroData.heading}
       </h1>
 
-      <p class="max-w-lg text-base leading-relaxed text-charcoal font-body">
-        At Summerville Dentistry, we prioritize patient relationships through gentle,
-        compassionate care from our convenient Evans and Augusta, GA locations.
+      <p class="max-w-lg text-base leading-relaxed text-charcoal font-body" data-sb-field-path="description">
+        {heroData.description}
       </p>
 
       <div class="flex flex-wrap items-center gap-4">
-        <Button variant="primary" href="#contact">Schedule Today</Button>
-        <Button variant="secondary" href="#doctors">Meet Our Doctors</Button>
+        <Button variant="primary" href={heroData.primaryCtaHref}>{heroData.primaryCtaText}</Button>
+        <Button variant="secondary" href={heroData.secondaryCtaHref}>{heroData.secondaryCtaText}</Button>
       </div>
     </div>
 
@@ -32,7 +32,7 @@ import DecorShapes from "../ui/DecorShapes.astro";
     <div class="relative flex-1 min-h-[300px] md:min-h-0">
       <Image
         src={heroImage}
-        alt="Modern dental office interior"
+        alt={heroData.heroImageAlt}
         widths={[480, 768, 1024]}
         sizes="(max-width: 768px) 100vw, 50vw"
         class="absolute inset-0 h-full w-full rounded-2xl object-cover"

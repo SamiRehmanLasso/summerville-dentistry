@@ -2,22 +2,22 @@
 import Button from "../ui/Button.astro";
 import SectionLabel from "../ui/SectionLabel.astro";
 import DecorShapes from "../ui/DecorShapes.astro";
+import missionData from "../../../content/data/mission.json";
 ---
 
-<section class="relative overflow-hidden rounded-2xl bg-charcoal px-8 py-20 md:px-32 md:py-20">
+<section class="relative overflow-hidden rounded-2xl bg-charcoal px-8 py-20 md:px-32 md:py-20" data-sb-object-id="content/data/mission.json">
   <DecorShapes section="mission" />
   <div class="relative flex flex-col items-center gap-8 text-center">
-    <SectionLabel class="!text-taupe">Our Mission</SectionLabel>
+    <SectionLabel class="!text-taupe">{missionData.label}</SectionLabel>
 
-    <blockquote class="max-w-[900px] font-heading text-2xl leading-snug text-cream md:text-4xl md:leading-[1.2]">
-      To provide superb dental care to every patient, and treat them with the time, respect,
-      kindness, and care that we would expect for ourselves.
+    <blockquote class="max-w-[900px] font-heading text-2xl leading-snug text-cream md:text-4xl md:leading-[1.2]" data-sb-field-path="quote">
+      {missionData.quote}
     </blockquote>
 
-    <p class="text-[15px] text-taupe font-body">
-      Open Fridays for your convenience &bull; Serving Evans &amp; Augusta, GA
+    <p class="text-[15px] text-taupe font-body" data-sb-field-path="subtitle">
+      {missionData.subtitle}
     </p>
 
-    <Button variant="light" href="#contact">Schedule a Visit</Button>
+    <Button variant="light" href={missionData.ctaHref}>{missionData.ctaText}</Button>
   </div>
 </section>

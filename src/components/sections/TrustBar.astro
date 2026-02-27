@@ -1,20 +1,15 @@
 ---
-const logos = [
-  "American Dental Association",
-  "Academy of Cosmetic Dentistry",
-  "Georgia Dental Association",
-  "Academy of General Dentistry",
-];
+import trustBarData from "../../../content/data/trust-bar.json";
 ---
 
-<section class="rounded-2xl bg-cream px-8 py-8 md:px-16">
+<section class="rounded-2xl bg-cream px-8 py-8 md:px-16" data-sb-object-id="content/data/trust-bar.json">
   <div class="flex flex-col items-center gap-5">
-    <p class="text-[13px] tracking-wide text-muted font-body">
-      Trusted by families across Augusta &amp; Evans, GA
+    <p class="text-[13px] tracking-wide text-muted font-body" data-sb-field-path="tagline">
+      {trustBarData.tagline}
     </p>
     <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-      {logos.map((name) => (
-        <span class="text-[13px] font-medium tracking-wide text-charcoal opacity-60 font-body">
+      {trustBarData.logos.map((name: string, i: number) => (
+        <span class="text-[13px] font-medium tracking-wide text-charcoal opacity-60 font-body" data-sb-field-path={`logos.${i}`}>
           {name}
         </span>
       ))}

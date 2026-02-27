@@ -1,8 +1,9 @@
 ---
 import Button from "../ui/Button.astro";
+import smileSavingsData from "../../../content/data/smile-savings.json";
 ---
 
-<section class="overflow-hidden rounded-2xl bg-charcoal">
+<section class="overflow-hidden rounded-2xl bg-charcoal" data-sb-object-id="content/data/smile-savings.json">
   <div class="flex flex-col items-center gap-8 px-8 py-16 text-center md:px-24 md:py-20">
     <!-- Decorative icon -->
     <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-copper/20">
@@ -12,19 +13,18 @@ import Button from "../ui/Button.astro";
     </div>
 
     <div class="flex flex-col gap-3">
-      <h2 class="font-heading text-3xl text-cream md:text-4xl">No Insurance?</h2>
-      <p class="text-xl font-medium text-copper font-body md:text-2xl">Our Patients Don't Need It!</p>
+      <h2 class="font-heading text-3xl text-cream md:text-4xl" data-sb-field-path="heading">{smileSavingsData.heading}</h2>
+      <p class="text-xl font-medium text-copper font-body md:text-2xl" data-sb-field-path="subheading">{smileSavingsData.subheading}</p>
     </div>
 
-    <p class="max-w-lg text-base leading-relaxed text-taupe font-body">
-      Our Smile Savings Plan gives you access to preventive care, exams, x-rays,
-      and exclusive discounts on treatments — all for a low monthly fee. No deductibles,
-      no annual maximums, no waiting periods.
+    <p class="max-w-lg text-base leading-relaxed text-taupe font-body" data-sb-field-path="description">
+      {smileSavingsData.description}
     </p>
 
     <div class="flex flex-wrap items-center justify-center gap-4">
-      <Button variant="light" href="#">Augusta Plan</Button>
-      <Button variant="light" href="#">Evans Plan</Button>
+      {smileSavingsData.buttons.map((btn: { text: string; href: string }, i: number) => (
+        <Button variant="light" href={btn.href} data-sb-field-path={`buttons.${i}.text`}>{btn.text}</Button>
+      ))}
     </div>
   </div>
 </section>

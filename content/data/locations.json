@@ -1,0 +1,23 @@
+{
+  "type": "LocationsSection",
+  "heading": "Visit Our Offices",
+  "description": "Two convenient locations in the Augusta area, both designed with your comfort in mind.",
+  "locations": [
+    {
+      "name": "Evans Office",
+      "image": "/images/Office.webp",
+      "address": "3991 Amberley Trail",
+      "city": "Evans, GA 30809",
+      "phone": "(706) 250-2998",
+      "hours": "Mon\u2013Fri 7:30am \u2013 5:00pm"
+    },
+    {
+      "name": "Augusta Office",
+      "image": "/images/office 2.webp",
+      "address": "3013 Walton Way",
+      "city": "Augusta, GA 30909",
+      "phone": "(706) 738-4723",
+      "hours": "Mon\u2013Fri 7:30am \u2013 5:00pm"
+    }
+  ]
+}

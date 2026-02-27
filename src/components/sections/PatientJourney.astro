@@ -1,66 +1,48 @@
 ---
 import SectionLabel from "../ui/SectionLabel.astro";
 import SectionHeading from "../ui/SectionHeading.astro";
+import journeyData from "../../../content/data/patient-journey.json";
 
-const steps = [
-  {
-    number: "01",
-    title: "Schedule Your Visit",
-    description: "Book online or give us a call. Our friendly team will find a time that works for your schedule at either our Augusta or Evans office.",
-    icon: `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>`,
-  },
-  {
-    number: "02",
-    title: "Comprehensive Exam",
-    description: "We'll take digital x-rays, perform a thorough exam, and sit down with you to discuss your oral health goals and any concerns.",
-    icon: `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>`,
-  },
-  {
-    number: "03",
-    title: "Personalized Plan",
-    description: "Your doctor creates a custom treatment plan tailored to your needs, budget, and timeline — with clear explanations every step of the way.",
-    icon: `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" /></svg>`,
-  },
-  {
-    number: "04",
-    title: "Smile with Confidence",
-    description: "From routine cleanings to advanced restorations, we deliver results that help you smile bigger and live healthier.",
-    icon: `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" /></svg>`,
-  },
+const stepIcons = [
+  `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>`,
+  `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>`,
+  `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" /></svg>`,
+  `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" /></svg>`,
 ];
 ---
 
-<section class="rounded-2xl bg-white px-8 py-16 md:px-16">
+<section class="rounded-2xl bg-white px-8 py-16 md:px-16" data-sb-object-id="content/data/patient-journey.json">
   <div class="flex flex-col items-center gap-12">
     <div class="flex flex-col items-center gap-4 text-center">
-      <SectionLabel>New Patients</SectionLabel>
-      <SectionHeading>Your Journey to a Healthier Smile</SectionHeading>
-      <p class="max-w-xl text-base leading-relaxed text-charcoal font-body">
-        We make getting started simple. Here's what to expect when you visit Summerville Dentistry.
+      <SectionLabel>{journeyData.label}</SectionLabel>
+      <SectionHeading>{journeyData.heading}</SectionHeading>
+      <p class="max-w-xl text-base leading-relaxed text-charcoal font-body" data-sb-field-path="description">
+        {journeyData.description}
       </p>
     </div>
 
     <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-      {steps.map((step, i) => (
+      {journeyData.steps.map((step: { number: string; title: string; description: string }, i: number) => (
         <div
           class="animate-on-scroll group flex flex-col gap-5 rounded-2xl bg-cream p-7 transition-all duration-300 hover:-translate-y-1"
           style={`transition-delay: ${i * 0.1}s`}
+          data-sb-field-path={`steps.${i}`}
         >
           <!-- Number + icon row -->
           <div class="flex items-center justify-between">
-            <span class="text-3xl font-heading text-taupe/60">{step.number}</span>
+            <span class="text-3xl font-heading text-taupe/60" data-sb-field-path=".number">{step.number}</span>
             <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-sage/40 text-dark">
-              <Fragment set:html={step.icon} />
+              <Fragment set:html={stepIcons[i]} />
             </div>
           </div>
 
           <!-- Connector line -->
-          {i < steps.length - 1 && (
+          {i < journeyData.steps.length - 1 && (
             <div class="hidden h-px w-full bg-taupe/30 md:block" />
           )}
 
-          <h3 class="text-base font-medium text-dark font-body">{step.title}</h3>
-          <p class="text-sm leading-relaxed text-charcoal font-body">{step.description}</p>
+          <h3 class="text-base font-medium text-dark font-body" data-sb-field-path=".title">{step.title}</h3>
+          <p class="text-sm leading-relaxed text-charcoal font-body" data-sb-field-path=".description">{step.description}</p>
         </div>
       ))}
     </div>

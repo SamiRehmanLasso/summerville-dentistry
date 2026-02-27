@@ -1,0 +1,10 @@
+{
+  "type": "SmileSavingsSection",
+  "heading": "No Insurance?",
+  "subheading": "Our Patients Don't Need It!",
+  "description": "Our Smile Savings Plan gives you access to preventive care, exams, x-rays, and exclusive discounts on treatments \u2014 all for a low monthly fee. No deductibles, no annual maximums, no waiting periods.",
+  "buttons": [
+    { "text": "Augusta Plan", "href": "#" },
+    { "text": "Evans Plan", "href": "#" }
+  ]
+}

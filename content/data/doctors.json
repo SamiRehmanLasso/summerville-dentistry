@@ -1,0 +1,27 @@
+{
+  "type": "DoctorsSection",
+  "heading": "Meet Our Doctors",
+  "description": "Our doctors' personalized, patient-first approach makes patients feel confident and valued, knowing they are receiving the highest level of dental care possible.",
+  "doctors": [
+    {
+      "name": "Scott Wingard, DMD",
+      "description": "Enjoys improving his patients' quality of life and building trusting relationships, always keeping their best interest in mind.",
+      "image": "/images/Scott.webp"
+    },
+    {
+      "name": "Sherilyn Harper, DMD",
+      "description": "Creates patient-centered relationships built on a foundation of respect, the power of good communication, and high-quality dentistry.",
+      "image": "/images/Sherilyn.webp"
+    },
+    {
+      "name": "Ariel K. Bish, DMD",
+      "description": "Understands the importance of involving patients in the decision-making process to achieve their best smile and oral health goals.",
+      "image": "/images/Ariel.webp"
+    },
+    {
+      "name": "Lori Harrell, DDS",
+      "description": "Educates early and involves patients in decisions regarding their smile and oral health, ensuring they feel well cared for.",
+      "image": "/images/Lori.webp"
+    }
+  ]
+}

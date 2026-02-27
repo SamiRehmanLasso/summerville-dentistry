@@ -1,0 +1,14 @@
+{
+  "type": "ServicesSection",
+  "label": "Our Services",
+  "heading": "Comprehensive Care for Every Smile",
+  "description": "From preventive care to full-mouth reconstruction, our team delivers exceptional results with advanced technology and a gentle touch.",
+  "services": [
+    { "title": "Cosmetic Dentistry", "description": "Transform your smile with veneers, whitening, and advanced cosmetic procedures tailored to you.", "icon": "sparkles", "color": "cream-outline" },
+    { "title": "Dental Implants", "description": "Permanent tooth replacement solutions that look, feel, and function like natural teeth.", "icon": "circle-dot", "color": "olive" },
+    { "title": "Teeth Whitening", "description": "Professional whitening treatments that deliver dramatically brighter results safely and effectively.", "icon": "sun", "color": "cream-outline" },
+    { "title": "Same-Day Crowns", "description": "Get beautiful, durable crowns in a single visit using our advanced Sirona CEREC technology.", "icon": "crown", "color": "blue" },
+    { "title": "Clear Aligners", "description": "Straighten your teeth discreetly with SureSmile\u00ae clear aligners \u2014 comfortable, removable, and virtually invisible.", "icon": "scan-line", "color": "cream-outline" },
+    { "title": "Preventive Care", "description": "Comprehensive cleanings, exams, and early detection to keep your smile healthy for a lifetime.", "icon": "shield-check", "color": "sage" }
+  ]
+}

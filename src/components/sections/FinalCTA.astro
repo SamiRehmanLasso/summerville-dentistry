@@ -2,22 +2,23 @@
 import Button from "../ui/Button.astro";
 import SectionHeading from "../ui/SectionHeading.astro";
 import DecorShapes from "../ui/DecorShapes.astro";
+import ctaData from "../../../content/data/final-cta.json";
 ---
 
-<section id="contact" class="relative overflow-hidden rounded-2xl bg-cream px-8 py-20 md:px-16">
+<section id="contact" class="relative overflow-hidden rounded-2xl bg-cream px-8 py-20 md:px-16" data-sb-object-id="content/data/final-cta.json">
   <DecorShapes section="cta" />
   <div class="relative flex flex-col items-center gap-6 text-center">
     <SectionHeading size="md">
-      Caring for You &amp; Your Smile
+      {ctaData.heading}
     </SectionHeading>
 
-    <p class="max-w-lg text-base leading-relaxed text-charcoal font-body">
-      Experience gentle, compassionate dental care at our Augusta or Evans locations.
+    <p class="max-w-lg text-base leading-relaxed text-charcoal font-body" data-sb-field-path="description">
+      {ctaData.description}
     </p>
 
     <div class="flex flex-wrap items-center justify-center gap-4">
-      <Button variant="primary" href="#contact">Schedule Today</Button>
-      <Button variant="secondary" href="#">Pay My Bill</Button>
+      <Button variant="primary" href={ctaData.primaryCtaHref}>{ctaData.primaryCtaText}</Button>
+      <Button variant="secondary" href={ctaData.secondaryCtaHref}>{ctaData.secondaryCtaText}</Button>
     </div>
   </div>
 </section>

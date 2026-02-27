@@ -1,28 +1,9 @@
 ---
 import LogoIcon from "../ui/LogoIcon.astro";
-
-const treatments = [
-  "Preventive Care",
-  "Cosmetic Dentistry",
-  "Dental Implants",
-  "Same-Day Crowns",
-  "Teeth Whitening",
-  "Clear Aligners",
-];
-
-const connect = [
-  { label: "Schedule Appointment", href: "#contact" },
-  { label: "Patient Forms", href: "#" },
-  { label: "Pay My Bill", href: "#" },
-];
-
-const socials = [
-  { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/SummervilleDentistry/" },
-  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/summervilledentistry/" },
-];
+import footerData from "../../../content/data/footer.json";
 ---
 
-<footer class="rounded-2xl bg-charcoal px-8 py-12 md:px-16">
+<footer class="rounded-2xl bg-charcoal px-8 py-12 md:px-16" data-sb-object-id="content/data/footer.json">
   <div class="flex flex-col gap-10">
     <!-- Top -->
     <div class="flex flex-col gap-12 md:flex-row md:gap-16">
@@ -30,11 +11,10 @@ const socials = [
       <div class="flex flex-col gap-4 md:w-80 shrink-0">
         <span class="flex items-center gap-2 text-xl font-medium text-cream font-body">
           <LogoIcon class="h-8 w-auto" />
-          Summerville Dentistry
+          <span data-sb-field-path="siteName">{footerData.siteName}</span>
         </span>
-        <p class="max-w-[280px] text-[13px] leading-relaxed text-taupe font-body">
-          Caring for you &amp; your smile. We provide superb dental care with the time,
-          respect, and kindness you deserve.
+        <p class="max-w-[280px] text-[13px] leading-relaxed text-taupe font-body" data-sb-field-path="tagline">
+          {footerData.tagline}
         </p>
       </div>
 
@@ -45,8 +25,8 @@ const socials = [
           <span class="text-[11px] font-medium uppercase tracking-[1.5px] text-taupe font-body">
             Treatments
           </span>
-          {treatments.map((item) => (
-            <a href="#services" class="text-[13px] text-cream transition-colors duration-200 hover:text-taupe font-body">
+          {footerData.treatments.map((item: string, i: number) => (
+            <a href="#services" class="text-[13px] text-cream transition-colors duration-200 hover:text-taupe font-body" data-sb-field-path={`treatments.${i}`}>
               {item}
             </a>
           ))}
@@ -57,18 +37,14 @@ const socials = [
           <span class="text-[11px] font-medium uppercase tracking-[1.5px] text-taupe font-body">
             Locations
           </span>
-          <div class="flex flex-col gap-1">
-            <span class="text-[13px] font-medium text-cream font-body">Augusta Office</span>
-            <span class="text-[13px] leading-relaxed text-taupe font-body">
-              3013 Walton Way<br />Augusta, GA 30909<br />(706) 738-4723
-            </span>
-          </div>
-          <div class="flex flex-col gap-1 mt-2">
-            <span class="text-[13px] font-medium text-cream font-body">Evans Office</span>
-            <span class="text-[13px] leading-relaxed text-taupe font-body">
-              3991 Amberley Trail<br />Evans, GA 30809<br />(706) 250-2998
-            </span>
-          </div>
+          {footerData.locations.map((loc: { name: string; address: string; city: string; phone: string }, i: number) => (
+            <div class:list={["flex flex-col gap-1", i > 0 && "mt-2"]} data-sb-field-path={`locations.${i}`}>
+              <span class="text-[13px] font-medium text-cream font-body" data-sb-field-path=".name">{loc.name}</span>
+              <span class="text-[13px] leading-relaxed text-taupe font-body">
+                {loc.address}<br />{loc.city}<br />{loc.phone}
+              </span>
+            </div>
+          ))}
         </div>
 
         <!-- Connect -->
@@ -76,8 +52,8 @@ const socials = [
           <span class="text-[11px] font-medium uppercase tracking-[1.5px] text-taupe font-body">
             Connect
           </span>
-          {connect.map((item) => (
-            <a href={item.href} class="text-[13px] text-cream transition-colors duration-200 hover:text-taupe font-body">
+          {footerData.connectLinks.map((item: { label: string; href: string }, i: number) => (
+            <a href={item.href} class="text-[13px] text-cream transition-colors duration-200 hover:text-taupe font-body" data-sb-field-path={`connectLinks.${i}.label`}>
               {item.label}
             </a>
           ))}
@@ -86,7 +62,7 @@ const socials = [
             Follow Us
           </span>
           <div class="flex gap-3">
-            {socials.map((s) => (
+            {footerData.socials.map((s: { label: string; icon: string; href: string }) => (
               <a
                 href={s.href}
                 target="_blank"
@@ -108,11 +84,11 @@ const socials = [
 
     <!-- Bottom -->
     <div class="flex flex-col items-center justify-between gap-4 border-t border-footer-border pt-5 md:flex-row">
-      <span class="text-xs text-taupe font-body">
-        Summerville Dentistry &copy; 2026. All Rights Reserved.
+      <span class="text-xs text-taupe font-body" data-sb-field-path="copyright">
+        {footerData.copyright}
       </span>
-      <span class="text-xs text-taupe font-body">
-        Mon&ndash;Fri 7:30am &ndash; 5:00pm
+      <span class="text-xs text-taupe font-body" data-sb-field-path="hours">
+        {footerData.hours}
       </span>
     </div>
   </div>
