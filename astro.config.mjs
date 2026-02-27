@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: [".netlify.app"]
+      allowedHosts: true
     }
   }
 });
