@@ -1,16 +1,36 @@
 {
-  "type": "AboutSection",
-  "label": "Welcome to Summerville Dentistry",
-  "heading": "Your Dental Home in Augusta & Evans",
-  "paragraphs": [
-    "At Summerville Dentistry, we value our patient relationships, making it our priority to deliver the gentle, compassionate dental care that you deserve. We work hard to make you feel at ease by providing exceptional patient care in a relaxed, friendly, and caring atmosphere.",
-    "We strive to develop lifelong relationships with our patients by combining the latest dental technology and a state-of-the-art facility with a professional and compassionate staff. The result is beautiful, healthy smiles that last a lifetime."
-  ],
-  "values": [
-    { "icon": "heart", "title": "Family Feel", "description": "A warm, welcoming environment where every patient is treated like family." },
-    { "icon": "hand", "title": "Genuine Patient Care", "description": "We take the time to listen, understand, and deliver personalized treatment." },
-    { "icon": "book", "title": "Patient Education", "description": "Detailed explanations, photos, and multimedia tools so you can make informed decisions." },
-    { "icon": "layers", "title": "Comprehensive Services", "description": "From preventive care to full-mouth reconstruction, all under one roof." },
-    { "icon": "zap", "title": "Advanced Technology", "description": "State-of-the-art equipment including CEREC same-day crowns and digital imaging." }
-  ]
+    "type": "AboutSection",
+    "label": "Welcome to Summerville Dentistry",
+    "heading": "Your Dental Home in Augusta & Evans",
+    "paragraphs": [
+        "At Summerville Dentistry, we value our patient relationships, making it our priority to deliver the gentle, compassionate dental care that you deserve. We work hard to make you feel at ease by providing exceptional patient care in a relaxed, friendly, and caring atmosphere.",
+        "We strive to develop lifelong relationships with our patients by combining the latest dental technology and a state-of-the-art facility with a professional and compassionate staff. The result is beautiful, healthy smiles that last a lifetime."
+    ],
+    "values": [
+        {
+            "icon": "heart",
+            "title": "Family Feel",
+            "description": "A warm, welcoming environment where every patient is treated like family."
+        },
+        {
+            "icon": "hand",
+            "title": "Genuine Patient Care",
+            "description": "We take the time to listen, understand, and deliver personalized treatment."
+        },
+        {
+            "icon": "book",
+            "title": "Patient Education",
+            "description": "Detailed explanations, photos, and multimedia tools so you can make informed decisions."
+        },
+        {
+            "icon": "layers",
+            "title": "Comprehensive Services",
+            "description": "From preventive care to full-mouth reconstruction, all under one roof."
+        },
+        {
+            "icon": "zap",
+            "title": "Advanced Technology",
+            "description": "State-of-the-art equipment including CEREC same-day crowns and digital imaging."
+        }
+    ]
 }
