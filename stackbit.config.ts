@@ -6,7 +6,7 @@ export default defineStackbitConfig({
   ssgName: "custom",
   nodeVersion: "18",
   devCommand:
-    "node_modules/.bin/astro dev --port {PORT} --hostname 127.0.0.1",
+    "__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=.netlify.app node_modules/.bin/astro dev --port {PORT} --hostname 127.0.0.1",
   experimental: {
     ssg: {
       name: "Astro",
